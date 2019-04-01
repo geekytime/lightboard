@@ -1,0 +1,23 @@
+{
+  "name": "@lightboard/vue",
+  "version": "1.0.0",
+  "main": "./src/components/lightboard.vue",
+  "private": true,
+  "scripts": {
+    "lint": "eslint . --ext .js,.vue"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^5.2.2"
+  },
+  "dependencies": {
+    "debounce": "^1.2.0",
+    "vue": "^2.6.10"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "lightboard",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:geekytime/lightboard.git",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "lint": "lerna run lint --stream"
+  },
+  "devDependencies": {
+    "lerna": "^3.13.1"
+  }
+}

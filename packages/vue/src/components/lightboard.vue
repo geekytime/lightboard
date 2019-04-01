@@ -1,0 +1,157 @@
+<template>
+  <div
+    class="lightboard"
+    @touchstart="handleTouchStart"
+    @touchmove="handleTouchMove"
+    @touchend="handleTouchEnd"
+    @mousedown="handleMouseDown"
+    @mousemove="handleMouseMove"
+    @mouseup="handleMouseUp"
+  >
+    <div
+      v-for="row in store.rowCount"
+      :key="`row-${row}`"
+      class="row"
+    >
+      <div
+        v-for="col in store.colCount"
+        :key="`col-${col}`"
+        class="cell"
+        :data-row="row"
+        :data-col="col"
+      >
+        <Light
+          :color="store.getColor(row, col)"
+          :data-row="row"
+          :data-col="col"
+        />
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import createStore from "../store/create-store.js"
+import debounce from "debounce"
+import Light from "./light.vue"
+
+export default {
+  components: {
+    Light
+  },
+  props: {
+    colors: {
+      type: Array,
+      default: () => { return [] }
+    },
+    lightSize: {
+      type: Number,
+      default: 50
+    },
+    seed: {
+      type: Number,
+      default: 0
+    }
+  },
+  watch: {
+    colors () {
+      this.store.colors = this.colors
+    },
+    lightSize () {
+      this.store.lightSize = this.lightSize
+    },
+    seed () {
+      this.store.reset()
+    }
+  },
+  created () {
+    this.store = createStore()
+    this.store.lightSize = this.lightSize
+    if (this.colors) {
+      this.store.setColors(this.colors)
+    }
+  },
+  mounted () {
+    this.resize()
+    this.$el.style.setProperty("--light-size", `${this.store.lightSize}px`)
+    window.addEventListener("resize", debounce(this.resize, 250))
+  },
+  beforeDestroy () {
+    window.removeEventListener("resize", debounce(this.resize, 250))
+  },
+  beforeUpdate () {
+    this.$el.style.setProperty("--light-size", `${this.store.lightSize}px`)
+  },
+  methods: {
+    handleMouseDown (event) {
+      const { row, col } = event.target.dataset
+      const identifier = -1
+      this.store.startTouch({ row, col, identifier })
+    },
+    handleMouseMove (event) {
+      if (event.buttons > 0) {
+        const { row, col } = event.target.dataset
+        const identifier = -1
+        this.store.startTouch({ row, col, identifier })
+      }
+    },
+    handleMouseUp (event) {
+      const { row, col } = event.target.dataset
+      const identifier = -1
+      this.store.endTouch({ row, col, identifier })
+    },
+    handleTouchStart (event) {
+      event.preventDefault()
+      const { row, col } = event.target.dataset
+      for (let i = 0; i < event.touches.length; i++) {
+        const { identifier } = event.touches[i]
+        this.store.startTouch({ row, col, identifier })
+      }
+    },
+    handleTouchMove (event) {
+      event.preventDefault()
+      for (let i = 0; i < event.touches.length; i++) {
+        const { pageX, pageY, identifier } = event.touches[i]
+        const el = document.elementFromPoint(pageX, pageY)
+        const { row, col } = el.dataset
+        this.store.startTouch({ row, col, identifier })
+      }
+    },
+    handleTouchEnd (event) {
+      event.preventDefault()
+      for (let i = 0; i < event.changedTouches.length; i++) {
+        const { identifier } = event.changedTouches[i]
+        this.store.endTouch({ identifier })
+      }
+    },
+    resize () {
+      const width = this.$el.offsetWidth
+      const height = this.$el.offsetHeight
+      this.store.resize({ width, height })
+    }
+  }
+}
+</script>
+
+<style lang="less">
+.lightboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+
+  .row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .cell {
+      display: flex;
+      width: var(--light-size);
+      height: var(--light-size);
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+</style>
