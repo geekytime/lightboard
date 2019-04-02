@@ -1,7 +1,7 @@
 {
   "name": "@lightboard/vue",
   "version": "1.0.0",
-  "main": "./src/components/lightboard.vue",
+  "main": "./src/index.js",
   "private": true,
   "scripts": {
     "lint": "eslint . --ext .js,.vue"

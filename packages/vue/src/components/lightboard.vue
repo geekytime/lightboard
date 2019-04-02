@@ -40,35 +40,9 @@ export default {
     Light
   },
   props: {
-    colors: {
-      type: Array,
-      default: () => { return [] }
-    },
-    lightSize: {
-      type: Number,
-      default: 50
-    },
-    seed: {
-      type: Number,
-      default: 0
-    }
-  },
-  watch: {
-    colors () {
-      this.store.colors = this.colors
-    },
-    lightSize () {
-      this.store.lightSize = this.lightSize
-    },
-    seed () {
-      this.store.reset()
-    }
-  },
-  created () {
-    this.store = createStore()
-    this.store.lightSize = this.lightSize
-    if (this.colors) {
-      this.store.setColors(this.colors)
+    store: {
+      type: Object,
+      default: createStore
     }
   },
   mounted () {

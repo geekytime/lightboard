@@ -7,17 +7,25 @@ const createStore = () => {
       height: 100,
       lightSize: 50,
       lights: {},
-      colors: [
-        "#FF4136",
-        "#0074D9",
-        "#FFDC00",
-        "#2ECC40",
-        "#B10DC9",
-        "#FF851B"
-      ],
-      touches: {}
+      touches: {},
+      color0: "#FF4136",
+      color1: "#FF851B",
+      color2: "#FFDC00",
+      color3: "#2ECC40",
+      color4: "#0074D9",
+      color5: "#B10DC9"
     },
     computed: {
+      colors () {
+        return [
+          this.color0,
+          this.color1,
+          this.color2,
+          this.color3,
+          this.color4,
+          this.color5
+        ]
+      },
       colCount () {
         return Math.floor(this.width / this.lightSize) || 0
       },
@@ -82,11 +90,6 @@ const createStore = () => {
       resize ({ width, height }) {
         this.width = width
         this.height = height
-      },
-      setColors (colors) {
-        if (colors && colors.length) {
-          this.colors = colors
-        }
       },
       reset () {
         this.lights = {}

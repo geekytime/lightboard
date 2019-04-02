@@ -1,3 +1,6 @@
-import LightBoard from "./components/lightboard.vue"
+import createStore from "./store/create-store.js"
+import Lightboard from "./components/lightboard.vue"
 
-export default LightBoard
+export { createStore, Lightboard }
+
+export default Lightboard
