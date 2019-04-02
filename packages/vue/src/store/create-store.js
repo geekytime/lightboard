@@ -6,6 +6,7 @@ const createStore = () => {
       width: 100,
       height: 100,
       lightSize: 50,
+      fadeSpeed: 500,
       lights: {},
       touches: {},
       color0: "#FF4136",

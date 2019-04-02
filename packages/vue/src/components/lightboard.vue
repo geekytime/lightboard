@@ -47,14 +47,14 @@ export default {
   },
   mounted () {
     this.resize()
-    this.$el.style.setProperty("--light-size", `${this.store.lightSize}px`)
+    this.setStyleProperties()
     window.addEventListener("resize", debounce(this.resize, 250))
   },
   beforeDestroy () {
     window.removeEventListener("resize", debounce(this.resize, 250))
   },
   beforeUpdate () {
-    this.$el.style.setProperty("--light-size", `${this.store.lightSize}px`)
+    this.setStyleProperties()
   },
   methods: {
     handleMouseDown (event) {
@@ -97,6 +97,10 @@ export default {
         const { identifier } = event.changedTouches[i]
         this.store.endTouch({ identifier })
       }
+    },
+    setStyleProperties () {
+      this.$el.style.setProperty("--light-size", `${this.store.lightSize}px`)
+      this.$el.style.setProperty("--fade-speed", `${this.store.fadeSpeed}ms`)
     },
     resize () {
       const width = this.$el.offsetWidth

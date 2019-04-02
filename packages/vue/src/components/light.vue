@@ -27,7 +27,9 @@ export default {
   height: 100%;
 
   @size: calc(var(--light-size) * .75);
-  transition: background-color 250ms ease, box-shadow 250ms ease;
+  transition:
+    background-color var(--fade-speed) ease,
+    box-shadow var(--fade-speed) ease;
   border-radius: 50%;
   width: @size;
   height: @size;
