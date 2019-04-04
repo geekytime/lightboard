@@ -31,7 +31,7 @@ class Lightboard extends React.Component {
     style.setProperty("--fade-speed", `${fadeSpeed}ms`)
   }
 
-  resize () {
+  resize = () => {
     if (this.el && this.el.current) {
       const el = this.el.current
       const width = el.offsetWidth
