@@ -22,7 +22,6 @@
   },
   "dependencies": {
     "@lightboard/common": "^1.0.0",
-    "@lightboard/vue": "^1.0.0",
-    "dat-gui": "dataarts/dat.gui"
+    "@lightboard/vue": "^1.0.0"
   }
 }
