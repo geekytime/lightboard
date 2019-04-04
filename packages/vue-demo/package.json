@@ -21,6 +21,7 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
+    "@lightboard/common": "^1.0.0",
     "@lightboard/vue": "^1.0.0",
     "dat-gui": "dataarts/dat.gui"
   }

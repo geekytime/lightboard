@@ -50,17 +50,5 @@ export default {
 </script>
 
 <style lang="less">
-@padding: 1em;
-@controlsHeight: 3em;
-
-.app {
-  height: 100vh;
-  width: 100vw;
-  padding: @padding;
-
-  .lightboard {
-    margin-top: 10px;
-    height: calc(100% - 10px);
-  }
-}
+@import "~@lightboard/common/styles/app.less";
 </style>

@@ -1,6 +1,6 @@
 import App from "./app.vue"
 import Vue from "vue"
-import "./index.less"
+import "@lightboard/common/styles/index.less"
 
 var rootEl = document.createElement("DIV")
 rootEl.id = "root"

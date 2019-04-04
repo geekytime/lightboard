@@ -112,24 +112,5 @@ export default {
 </script>
 
 <style lang="less">
-.lightboard {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
-
-  .row {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-
-    .cell {
-      display: flex;
-      width: var(--light-size);
-      height: var(--light-size);
-      justify-content: center;
-      align-items: center;
-    }
-  }
-}
+@import "~@lightboard/common/styles/lightboard.less";
 </style>
