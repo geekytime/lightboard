@@ -120,7 +120,7 @@ class Lightboard extends React.Component {
     }
   }
 
-  handleTouchMove = (event) => {    
+  handleTouchMove = (event) => {
     for (let i = 0; i < event.touches.length; i++) {
       const { pageX, pageY, identifier } = event.touches[i]
       const el = document.elementFromPoint(pageX, pageY)
