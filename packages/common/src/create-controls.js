@@ -1,8 +1,6 @@
 import * as dat from "dat.gui"
 
-const createControls = (context) => {
-  console.log(context.lightSize, context.fadeSpeed, context.decaySpeed)
-
+const createControls = (context) => {  
   const gui = new dat.GUI({ closed: true })
   gui.add(context, "lightSize", { sm: 30, md: 50, lg: 80, xl: 110 })
   gui.add(context, "fadeSpeed", { slow: 750, med: 500, fast: 250 })

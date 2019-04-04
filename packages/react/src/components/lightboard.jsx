@@ -93,7 +93,6 @@ class Lightboard extends React.Component {
   }
 
   handleMouseDown = (event) => {
-    console.log("handleMouseDown")
     const { row, col } = event.target.dataset
     const identifier = -1
     this.props.store.startTouch({ row, col, identifier })
@@ -114,7 +113,6 @@ class Lightboard extends React.Component {
   }
 
   handleTouchStart = (event) => {
-    // event.preventDefault()
     const { row, col } = event.target.dataset
     for (let i = 0; i < event.touches.length; i++) {
       const { identifier } = event.touches[i]
@@ -122,8 +120,7 @@ class Lightboard extends React.Component {
     }
   }
 
-  handleTouchMove = (event) => {
-    // event.preventDefault()
+  handleTouchMove = (event) => {    
     for (let i = 0; i < event.touches.length; i++) {
       const { pageX, pageY, identifier } = event.touches[i]
       const el = document.elementFromPoint(pageX, pageY)
