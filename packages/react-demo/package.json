@@ -1,0 +1,21 @@
+{
+  "name": "@lightboard/react-demo",
+  "version": "1.0.0",
+  "main": "./src/index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack-dev-server --config webpack.config.dev.js",
+    "lint": "eslint . --ext .js,.vue"
+  },
+  "devDependencies": {
+    "@lightboard/config": "^1.0.0"
+  },
+  "dependencies": {
+    "@lightboard/react": "^1.0.0",
+    "debounce": "^1.2.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}

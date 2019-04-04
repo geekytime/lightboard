@@ -3,9 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin")
 const htmlWebpackTemplate = require("html-webpack-template")
 const path = require("path")
 
-const links = [
-  "https://fonts.googleapis.com/css?family=Baloo+Chettan"
-]
+const exclude = new RegExp(`(node_modules)/(?!@lightboard)`)
 
 const headHtmlSnippet = `
   <meta
@@ -24,7 +22,7 @@ module.exports = {
     rules: [{
       test: /\.jsx?$/,
       use: ["babel-loader"],
-      exclude: /(node_modules)/,
+      exclude
     },{
       test: /\.less|\.css$/,
       use: [
@@ -58,12 +56,12 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: htmlWebpackTemplate,
-      title: "Chris - Home",
+      title: "Lightboard",
       filename: "index.html",
       inject: false,
       lang: "en-US",
-      headHtmlSnippet,
-      links
+      appMountId: "root",
+      headHtmlSnippet
     })
   ]
 }
