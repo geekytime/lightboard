@@ -89,7 +89,7 @@ class Store {
       this.updateTouchList(identifier, key)
       const colorIndex = this.nextColor(this.lights[key].colorIndex)
       this.addRecord(key, colorIndex)
-      this.lights[key] = { colorIndex }      
+      this.lights[key] = { colorIndex }
     }
   }
 
