@@ -21,7 +21,6 @@ const createControls = (context) => {
   colors.addColor(context, "color4")
   colors.addColor(context, "color5")
   gui.add(context, "reset")  
-  gui.close()
 }
 
 export default createControls
