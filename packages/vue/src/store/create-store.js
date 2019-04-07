@@ -127,7 +127,7 @@ const createStore = () => {
                 this.processDecay(key)
               }, 0)
             } else {
-              break;
+              break
             }
           }
           this.records.splice(0, i)

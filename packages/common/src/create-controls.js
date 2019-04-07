@@ -1,6 +1,6 @@
 import * as dat from "dat.gui"
 
-const createControls = (context) => {  
+const createControls = (context) => {
   const gui = new dat.GUI({ closed: true })
   gui.add(context, "lightSize", { sm: 30, md: 50, lg: 80, xl: 110 })
   gui.add(context, "fadeSpeed", { slow: 750, med: 500, fast: 250 })
@@ -20,7 +20,7 @@ const createControls = (context) => {
   colors.addColor(context, "color3")
   colors.addColor(context, "color4")
   colors.addColor(context, "color5")
-  gui.add(context, "reset")
+  gui.add(context, "reset")  
   gui.close()
 }
 

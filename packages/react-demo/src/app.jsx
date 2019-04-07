@@ -10,7 +10,7 @@ class App extends React.Component {
   }
 
   componentDidMount () {
-    createControls(this.store)
+    createControls(this.store)    
   }
 
   render () {
