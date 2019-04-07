@@ -10,7 +10,9 @@
     "lint": "eslint . --ext .js,.vue"
   },
   "devDependencies": {
-    "@lightboard/config": "^1.0.0"
+    "@lightboard/config": "^1.0.0",
+    "eslint": "^5.16.0",
+    "eslint-plugin-react": "^7.12.4"
   },
   "dependencies": {
     "@lightboard/react": "^1.0.0",
