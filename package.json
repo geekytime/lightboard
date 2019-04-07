@@ -9,7 +9,10 @@
     "packages/*"
   ],
   "scripts": {
-    "lint": "lerna run lint --stream"
+    "build": "lerna run build --stream",
+    "lint": "lerna run lint --stream",
+    "push": "lerna run push --stream",
+    "validate": "lerna run validate --stream"
   },
   "devDependencies": {
     "lerna": "^3.13.1"

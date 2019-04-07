@@ -6,7 +6,9 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack-dev-server --config webpack.config.dev.js",
-    "lint": "eslint . --ext .js,.vue"
+    "lint": "eslint . --ext .js,.vue",
+    "push": "butler push ./dist geekytime/lightboard-vue:html5",
+    "validate": "butler validate ./dist"
   },
   "devDependencies": {
     "@lightboard/config": "^1.0.0",

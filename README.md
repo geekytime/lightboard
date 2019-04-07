@@ -2,6 +2,11 @@
 A touch-sensitive light-board, inspired by an interactive table my
 kids saw at a restaurant.
 
+You can try out both implementations:
+
+- [Lightboard - Vue.js](https://geekytime.itch.io/lightboard-vue)
+- [Lightboard - React](https://geekytime.itch.io/lightboard-react)
+
 ## About
 
 I thought this would be fun to build, and also an interesting comparison
